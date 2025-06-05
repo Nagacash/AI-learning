@@ -1,0 +1,6 @@
+{
+  "name": "AI Industry Trends Dashboard",
+  "description": "A web application displaying AI industry trends and market research data through interactive charts and analysis sections. It showcases market size, growth projections, market share, technology adoption rates, SWOT analysis, consumer preferences, and value chain processes.",
+  "requestFramePermissions": [],
+  "prompt": ""
+}
