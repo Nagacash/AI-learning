@@ -1206,32 +1206,8 @@ from sklearn.metrics import classification_report
 # Load dataset
 # data = pd.read_csv('credit_card_transactions.csv') # Assuming you have this file
 
-# --- Placeholder for data loading and preprocessing ---
-# For demonstration, let's create some dummy data if 'data' is not defined
-try:
-    data_exists = 'data' in locals() or 'data' in globals() 
-    if not data_exists: 
-      raise NameError("Data not loaded")
-    if 'is_fraud' not in data.columns or len(data.columns) <=1 :
-        print("Warning: 'is_fraud' column not found or insufficient features in loaded data. Using placeholder data for SVM snippet.")
-        raise ValueError("Insufficient data")
-    
-    features_df = data.drop('is_fraud', axis=1) 
-    features_df = pd.get_dummies(features_df, dummy_na=False) 
-    features_df = features_df.fillna(features_df.mean()) 
-    target_series = data['is_fraud']
-
-except (NameError, ValueError, AttributeError) as e: 
-    print(f"Data loading/validation error: {e}. Creating dummy data for SVM snippet.")
-    from sklearn.datasets import make_classification
-    features_array, target_array = make_classification(n_samples=100, n_features=5, random_state=42)
-    features_df = pd.DataFrame(features_array, columns=[f'feature_{i}' for i in range(5)])
-    target_series = pd.Series(target_array)
-# --- End of Placeholder ---
-
-
 # Split the dataset
-X_train, X_test, y_train, y_test = train_test_split(features_df, target_series, test_size=0.2, random_state=42)
+# X_train, X_test, y_train, y_test = train_test_split(features_df, target_series, test_size=0.2, random_state=42)
 
 # Normalize features
 scaler = StandardScaler()
@@ -1431,7 +1407,7 @@ print(classification_report(y_test, predictions))`
                     <p className={pInfoSectionClasses}>
                         We reserve the right to adapt this Privacy Policy to always comply with current legal requirements or to implement changes to our services in the Privacy Policy, e.g., when introducing new services. For your renewed visit, the new Privacy Policy will then apply.
                     </p>
-                    <p className={`${pInfoSectionClasses} text-xs sm:text-sm text-slate-400`}>Last Updated: June 5, 2025</p>
+                    <p className={`${pInfoSectionClasses} text-xs sm:text-sm text-slate-400`}>Last Updated: June 5, 2024</p>
                 </section>
             )}
 
