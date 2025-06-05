@@ -12,123 +12,124 @@
   <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet"> {/* Added Quicksand font */}
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet"> {/* Kept Inter in case needed as fallback or specific elements */}
   
+  <!-- TODO: Add Silktide Consent Manager CSS if needed -->
+  <!-- <link rel="stylesheet" href="/silktide-consent-manager.css"> -->
 
   <style>
-    body {
-      font-family: 'Quicksand', sans-serif; /* Changed to Quicksand */
-      @apply bg-black h-full; 
-    }
-    .chart-container {
-      position: relative;
-      width: 100%;
-      max-width: 600px; /* Charts will not exceed this width */
-      margin-left: auto;
-      margin-right: auto;
-      height: 350px; 
-      max-height: 400px;
-    }
-    @media (max-width: 768px) {
-      .chart-container {
-        height: 300px;
-        max-height: 350px;
-      }
-    }
-    .chart-container canvas {
-        width: 100% !important;
-        height: 100% !important;
-    }
+body {
+  font-family: 'Quicksand', sans-serif; /* Changed to Quicksand */
+  @apply bg-black h-full;
+}
+.chart-container {
+  position: relative;
+  width: 100%;
+  max-width: 600px; /* Charts will not exceed this width */
+  margin-left: auto;
+  margin-right: auto;
+  height: 350px;
+  max-height: 400px;
+}
+@media (max-width: 768px) {
+  .chart-container {
+    height: 300px;
+    max-height: 350px;
+  }
+}
+.chart-container canvas {
+    width: 100% !important;
+    height: 100% !important;
+}
 
-    .cursor-blink::after {
-      content: '_';
-      animation: blink 1s step-end infinite;
-    }
-    @keyframes blink {
-      from, to { color: transparent; }
-      50% { color: inherit; } 
-    }
+.cursor-blink::after {
+  content: '_';
+  animation: blink 1s step-end infinite;
+}
+@keyframes blink {
+  from, to { color: transparent; }
+  50% { color: inherit; }
+}
 
-    /* Newsletter Card Styles - Adapted for Dark Theme & Quicksand */
+/* Newsletter Card Styles - Adapted for Dark Theme & Quicksand */
+.card {
+  width: 90%; /* Responsive width */
+  max-width: 340px; /* Increased max-width */
+  padding: 25px;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 18px; /* Increased gap */
+  background: #1e293b; /* slate-800 */
+  border-radius: 20px;
+  border: 1px solid #334155; /* slate-700 for subtle border */
+  box-shadow: 0 10px 25px rgba(0,0,0,0.4); /* Enhanced shadow */
+}
+ @media (min-width: 640px) { /* sm breakpoint */
     .card {
-      width: 90%; /* Responsive width */
-      max-width: 340px; /* Increased max-width */
-      padding: 25px;
-      text-align: center;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-direction: column;
-      gap: 18px; /* Increased gap */
-      background: #1e293b; /* slate-800 */
-      border-radius: 20px;
-      border: 1px solid #334155; /* slate-700 for subtle border */
-      box-shadow: 0 10px 25px rgba(0,0,0,0.4); /* Enhanced shadow */
+        width: 350px;
     }
-     @media (min-width: 640px) { /* sm breakpoint */
-        .card {
-            width: 350px;
-        }
-    }
+}
 
+.card > * {
+  margin: 0;
+}
 
-    .card > * {
-      margin: 0;
-    }
+.card__title {
+  font-size: 26px; /* Slightly larger */
+  font-weight: 700; /* Quicksand bold */
+  color: #cbd5e1; /* slate-300 */
+}
 
-    .card__title {
-      font-size: 26px; /* Slightly larger */
-      font-weight: 700; /* Quicksand bold */
-      color: #cbd5e1; /* slate-300 */
-    }
+.card__content {
+  font-size: 15px; /* Slightly larger */
+  line-height: 1.7; /* Improved line height */
+  color: #94a3b8; /* slate-400 */
+}
 
-    .card__content {
-      font-size: 15px; /* Slightly larger */
-      line-height: 1.7; /* Improved line height */
-      color: #94a3b8; /* slate-400 */
-    }
+.card__form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px; /* Increased gap */
+  width: 100%;
+}
 
-    .card__form {
-      display: flex;
-      flex-direction: column;
-      gap: 15px; /* Increased gap */
-      width: 100%;
-    }
+.card__form input {
+  margin-top: 10px;
+  outline: 0;
+  background: #334155; /* slate-700 */
+  box-shadow: transparent 0px 0px 0px 1px inset;
+  padding: 0.8em; /* Increased padding */
+  border-radius: 14px;
+  border: 1px solid #475569; /* slate-600 */
+  color: #e2e8f0; /* slate-200 */
+  font-family: 'Quicksand', sans-serif;
+  font-size: 15px;
+}
 
-    .card__form input {
-      margin-top: 10px;
-      outline: 0;
-      background: #334155; /* slate-700 */
-      box-shadow: transparent 0px 0px 0px 1px inset;
-      padding: 0.8em; /* Increased padding */
-      border-radius: 14px;
-      border: 1px solid #475569; /* slate-600 */
-      color: #e2e8f0; /* slate-200 */
-      font-family: 'Quicksand', sans-serif;
-      font-size: 15px;
-    }
+.card__form input::placeholder {
+  color: #94a3b8; /* slate-400 */
+}
 
-    .card__form input::placeholder {
-      color: #94a3b8; /* slate-400 */
-    }
+.card__form button {
+  border: 0;
+  background: #0ea5e9; /* sky-500 */
+  color: #ffffff; /* white */
+  padding: 0.8em; /* Increased padding */
+  border-radius: 14px;
+  font-weight: 700; /* Quicksand bold */
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out, transform 0.1s ease;
+  font-size: 16px;
+}
 
-    .card__form button {
-      border: 0;
-      background: #0ea5e9; /* sky-500 */
-      color: #ffffff; /* white */
-      padding: 0.8em; /* Increased padding */
-      border-radius: 14px;
-      font-weight: 700; /* Quicksand bold */
-      cursor: pointer;
-      transition: background-color 0.2s ease-in-out, transform 0.1s ease;
-      font-size: 16px;
-    }
-
-    .card__form button.sign-up:hover { 
-      background: #0284c7; /* sky-600 */
-      transform: translateY(-1px);
-    }
-    .card__form button.sign-up:active {
-      transform: translateY(0px);
-    }
+.card__form button.sign-up:hover {
+  background: #0284c7; /* sky-600 */
+  transform: translateY(-1px);
+}
+.card__form button.sign-up:active {
+  transform: translateY(0px);
+}
   </style>
 <script type="importmap">
 {
@@ -143,12 +144,13 @@
   }
 }
 </script>
-<link rel="stylesheet" href="/index.css">
 </head>
 <body class="bg-black min-h-screen flex flex-col"> 
   <div id="root" class="flex-grow flex flex-col"></div> 
 
   <script type="module" src="/index.tsx"></script>
 
+  <!-- TODO: Add Silktide Consent Manager JS if needed -->
+  <!-- <script src="/silktide-consent-manager.js" defer></script> -->
 </body>
 </html>
